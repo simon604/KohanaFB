@@ -1,0 +1,23 @@
+# Custom Framework created for Facebook Canvas Apps based on Kohana PHP Framework, version 3.2 (development)
+
+Author: Simon Wong (simon.wong@imagination.com)
+Last Update: February 2012
+
+----------------------------------------------------
+
+Introduction:
+
+This template provides all the basic customization and modules required for a Facebook Canvas app. It provides basic Facebook integration modules for authentication and social channels.
+
+----------------------------------------------------
+
+Folder Structure:
+
+/app/application - Your application folder
+/app/system - Kohana core
+/app/modules - Kohana default and third-party modules
+/db - Put schema files here
+/publish - Built files will be here
+/ssl - Folder for all SSL related files
+
+----------------------------------------------------
