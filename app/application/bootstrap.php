@@ -118,9 +118,9 @@ Kohana::modules(array(
 /* Static pages */
 Route::set('static', 'page/<page>', array('path' => '.*',))
     ->defaults(array(
-    	'controller' => 'page',
-        'action' => 'static',
-    ));
+    'controller' => 'page',
+    'action' => 'static',
+     ));
 
 /* Default Route */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
