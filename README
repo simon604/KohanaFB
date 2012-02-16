@@ -22,6 +22,8 @@ Folder Structure:
 
 ----------------------------------------------------
 
+Customization Added:
+
 Facebook Integration:
 A customized Facebook SDK wrapper based on an open source one (https://github.com/paptamas/Kohana-Facebook-Module) has being integrated.
 
