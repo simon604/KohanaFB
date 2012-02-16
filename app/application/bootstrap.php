@@ -128,3 +128,13 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 		'controller' => 'public',
 		'action'     => 'index',
 	));
+
+
+/**
+ * Setting error handler for production environment
+ *  
+ */
+if (isset($_SERVER['KOHANA_ENV']) && ($_SERVER['KOHANA_ENV'] == 'TESTING' || $_SERVER['KOHANA_ENV'] == 'DEVELOPMENT')) {
+} else {
+    set_exception_handler(array('Controller_Error', 'handle'));
+}	
