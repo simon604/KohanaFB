@@ -2,6 +2,5 @@
 
 class FBAuth extends Kohana_FBAuth
 {	
-	
 }
 // END FBAuth

@@ -106,6 +106,7 @@ Kohana::modules(array(
 	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	'fbauth'	 => MODPATH.'fbauth', // FB INTEGRATION
 	));
 
 
@@ -124,6 +125,6 @@ Route::set('static', 'page/<page>', array('path' => '.*',))
 /* Default Route */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'welcome',
+		'controller' => 'public',
 		'action'     => 'index',
 	));

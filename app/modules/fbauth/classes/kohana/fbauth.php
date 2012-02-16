@@ -16,7 +16,7 @@ class Kohana_FBAuth
 	
 	protected $_me;
 
-	protected $_session;
+	protected $_user;
 	
 	protected $_config;
 
@@ -44,11 +44,10 @@ class Kohana_FBAuth
 			)
 		);
 
-		$this->_session = $this->_facebook->getSession();
-		
 		try
 		{
-			$this->_me = $this->_facebook->api('/me');			
+			$this->_me = $this->_facebook->api('/me');
+			$this->_user = $this->_facebook->getUser();
 		}
 		catch (FacebookApiException $e)
 		{
@@ -146,11 +145,42 @@ class Kohana_FBAuth
 		return $this->login_url = $this->_facebook->getLoginUrl(
 			array
 			(  
-				'req_perms'		=> $this->_config->get('req_perms'),
-				'next'			=> $this->_config->get('next'),
-				'cancel_url'	=> $this->_config->get('cancel_url')
+				'scope'			=> $this->_config->get('scope'),
+				'redirect_uri'	=> $this->_config->get('redirect_uri'),
+				'display'		=> $this->_config->get('display'),
 			));
 	}
-	
+
+	/**
+	 * Check whether the user has liked the page or not
+	 *
+	 * @return	boolean
+	 */
+	public function checkPageLike() 
+	{	
+		// Get signed request info from Facebook
+		$signed_request = $this->_facebook->getSignedRequest();
+
+		if(isset($signed_request['page']['liked'])) 
+		{
+			return $signed_request['page']['liked'];
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+
+	/**
+	 * Get friends of user
+	 *
+	 * @return	boolean
+	 */
+	public function getUserGraph($graph_type) 
+	{	
+		$result = $this->_facebook->api('/me/'.$graph_type);
+		var_dump($result);
+
+	}
 }
 // END Kohana_FBAuth

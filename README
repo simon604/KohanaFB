@@ -21,3 +21,17 @@ Folder Structure:
 /ssl - Folder for all SSL related files
 
 ----------------------------------------------------
+
+Facebook Integration:
+A customized Facebook SDK wrapper based on an open source one (https://github.com/paptamas/Kohana-Facebook-Module) has being integrated.
+
+Example - getting facebook user id:
+$fbauth = FBAuth::instance();
+$fb_id = $fbauth->get('uid');
+ 
+Config file:
+/app/application/config/facebook.php
+
+See the following for functions available:
+/app/modules/fbauth/classes/kohana/fbauth.php
+/app/modules/fbauth/classes/fbauth.php
