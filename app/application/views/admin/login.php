@@ -13,7 +13,5 @@
 <?= Form::label('password', 'Password'); ?>
 <?= Form::password('password'); ?>
 
-<p>(Remember Me keeps you logged in for 2 weeks)</p>
-
 <?= Form::submit('login', 'Login'); ?>
 <?= Form::close(); ?>

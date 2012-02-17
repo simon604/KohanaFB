@@ -38,17 +38,18 @@ class Controller_Admin extends Controller_Template {
         {
             if(!Auth::instance()->logged_in())
             {
-                // if user is logged in but not enough permission, throw error
-                if(Auth::instance()->logged_in())
-                {
-                    throw new Exception('Invalid access.');
-                }
-                else
-                {
-                    Request::current()->redirect("admin/login");
-                }
+                Request::current()->redirect("admin/login");
             }
         }
+    }
+
+    /**
+     * Redirect to dashboard page on index
+     */
+    public function action_index()
+    {
+        // redirect to dashboard
+        Request::current()->redirect("admin/dashboard");
     }
 
     /**
