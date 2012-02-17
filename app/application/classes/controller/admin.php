@@ -15,15 +15,11 @@ class Controller_Admin extends Controller_Template {
 
     public $template = '/admin/template';
 
-    // List of IP addresses that are allowed to access the admin interface
-    protected static $admin_ip_whitelist = array(
-        '127.0.0.1',            // localhost (IPv4)
-        '::1',                        // localhost (IPv6)
-        '203.45.29.198',    // Imagination
-        '202.153.33.187',    // Imagination
-        '218.189.130.249',    // Imagination HK Proxy
-    );
-
+    /**
+     * -IP protect the admin panel
+     * -Check auth for admin user
+     *
+     */
     public function before()
     {
         parent::before();
@@ -32,6 +28,13 @@ class Controller_Admin extends Controller_Template {
         // set action that are protected in auth_array
         $auth_array = array('index', 'dashboard');
         $action = Request::current()->action();
+
+        //Check IP restriction
+        $access = Utils_Network::checkIPRestriction();
+        if(!$access)
+        {
+            Request::current()->redirect("/");
+        }
 
         // Check permission
         if(in_array($action, $auth_array))

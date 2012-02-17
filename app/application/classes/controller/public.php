@@ -74,7 +74,8 @@ class Controller_Public extends Controller_Template {
             // user needs to log in and auth
             echo "im not logged in and I need a login link";
             $loginUrl = $fbauth->login_url();
-            echo("<script> top.location.href='" . $loginUrl . "'</script>");
+            echo $loginUrl;
+            //echo("<script> top.location.href='" . $loginUrl . "'</script>");
         }
 
         //set view for template
